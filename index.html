@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Lezen">
+  <meta name="theme-color" content="#F2F2F7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <link rel="apple-touch-icon" href="icon-512.png">
+  <link rel="icon" type="image/png" href="icon-512.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <title>Lezen</title>
+</head>
+<body>
+
+  <!-- Homescreen -->
+  <div class="view" id="home">
+    <header class="navbar">
+      <span class="nav-title">Lezen</span>
+      <div class="nav-rechts">
+        <button class="rond-btn" id="btnNieuw" aria-label="Boek toevoegen">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </header>
+    <main class="content">
+      <h1 class="large-title">Lezen</h1>
+      <section id="boekenLijst"></section>
+
+      <h2 class="sectie-kop">Kalender</h2>
+      <section class="card kalender">
+        <div class="kal-kop">
+          <button class="kal-pijl" id="vorigeMaand" aria-label="Vorige maand">‹</button>
+          <button class="kal-titel" id="maandTitel" title="Naar deze maand"></button>
+          <button class="kal-pijl" id="volgendeMaand" aria-label="Volgende maand">›</button>
+        </div>
+        <div class="kal-grid" id="kalGrid"></div>
+        <div class="legende">
+          <span><i class="stip groen"></i>doel gehaald</span>
+          <span><i class="stip oranje"></i>minder gelezen</span>
+          <span><i class="stip grijs"></i>gepland</span>
+          <span><i class="stip rood"></i>deadline</span>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Detail van een boek -->
+  <div class="view push" id="detail" inert>
+    <header class="navbar">
+      <div class="nav-links">
+        <button class="terug-btn" id="btnTerug">
+          <svg viewBox="0 0 12 20" width="12" height="20" aria-hidden="true"><path d="M10 2 2 10l8 8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Lezen
+        </button>
+      </div>
+      <span class="nav-title" id="detailNavTitel"></span>
+    </header>
+    <main class="content">
+      <h1 class="large-title" id="detailTitel"></h1>
+      <div id="detailInhoud"></div>
+    </main>
+  </div>
+
+  <div class="backdrop" id="backdrop"></div>
+
+  <!-- Sheet: boek toevoegen / bewerken -->
+  <form class="sheet" id="sheetBoek" inert novalidate>
+    <div class="sheet-greep">
+      <div class="grabber"></div>
+      <div class="sheet-kop">
+        <button type="button" class="link-btn" data-sluit>Annuleer</button>
+        <h2 id="boekSheetTitel">Nieuw boek</h2>
+        <span></span>
+      </div>
+    </div>
+    <div class="groep">
+      <div class="rij"><input id="fTitel" type="text" placeholder="Titel" autocomplete="off" enterkeyhint="next"></div>
+      <div class="rij"><label for="fPaginas">Pagina's</label><input id="fPaginas" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="320"></div>
+    </div>
+    <div class="groep">
+      <div class="rij"><label for="fStart">Startdatum</label><input id="fStart" type="date"></div>
+      <div class="rij"><label for="fDeadline">Deadline</label><input id="fDeadline" type="date"></div>
+    </div>
+    <p class="fout" id="boekFout" role="alert"></p>
+    <button type="submit" class="knop" id="boekOpslaan">Toevoegen</button>
+  </form>
+
+  <!-- Sheet: gelezen ingeven -->
+  <form class="sheet" id="sheetLog" inert novalidate>
+    <div class="sheet-greep">
+      <div class="grabber"></div>
+      <div class="sheet-kop">
+        <button type="button" class="link-btn" data-sluit>Annuleer</button>
+        <h2 id="logTitel"></h2>
+        <span></span>
+      </div>
+    </div>
+    <div class="segment" role="tablist">
+      <button type="button" class="actief" data-modus="aantal">Aantal pagina's</button>
+      <button type="button" data-modus="totPagina">Tot pagina</button>
+    </div>
+    <input class="groot-getal" id="logVeld" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" aria-label="Pagina's" autocomplete="off">
+    <p class="log-hint" id="logHint">&nbsp;</p>
+    <div class="stappen">
+      <button type="button" class="stap" data-stap="-5">−5</button>
+      <button type="button" class="stap" data-stap="-1">−1</button>
+      <button type="button" class="stap" data-stap="1">+1</button>
+      <button type="button" class="stap" data-stap="5">+5</button>
+    </div>
+    <div class="groep">
+      <div class="rij"><label for="logDatum">Datum</label><input id="logDatum" type="date"></div>
+    </div>
+    <p class="fout" id="logFout" role="alert"></p>
+    <button type="submit" class="knop">Opslaan</button>
+    <button type="button" class="link-btn rood wis-btn" id="logWis" hidden>Ingave verwijderen</button>
+  </form>
+
+  <script src="app.js"></script>
+</body>
+</html>
