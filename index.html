@@ -9,10 +9,664 @@
   <meta name="apple-mobile-web-app-title" content="Lezen">
   <meta name="theme-color" content="#F2F2F7" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-  <link rel="apple-touch-icon" href="icon-512.png">
-  <link rel="icon" type="image/png" href="icon-512.png">
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
+  <link rel="apple-touch-icon" href="data:image/png;base64,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">
+  <link rel="icon" type="image/png" href="data:image/png;base64,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">
+  <script>
+    if (!/[?&]app\b/.test(location.search) && window.self === window.top && !navigator.standalone &&
+        matchMedia("(min-width: 700px)").matches) document.documentElement.classList.add("kader");
+  </script>
+  <style>
+/* ---------- Kleuren (iOS) ---------- */
+:root {
+  --bg: #F2F2F7;
+  --kaart: #FFFFFF;
+  --groep: #FFFFFF;
+  --sheet: #F2F2F7;
+  --tekst: #000;
+  --sec: #8E8E93;
+  --accent: #007AFF;
+  --groen: #34C759;
+  --oranje: #FF9500;
+  --rood: #FF3B30;
+  --spoor: #E5E5EA;
+  --scheiding: rgba(60, 60, 67, .2);
+  --nav: rgba(242, 242, 247, .8);
+  --backdrop: rgba(0, 0, 0, .35);
+  --grabber: #C7C7CC;
+  --segment: #E3E3E8;
+  --segment-actief: #FFFFFF;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000;
+    --kaart: #1C1C1E;
+    --groep: #2C2C2E;
+    --sheet: #1C1C1E;
+    --tekst: #FFF;
+    --spoor: #38383A;
+    --scheiding: rgba(84, 84, 88, .65);
+    --nav: rgba(0, 0, 0, .75);
+    --backdrop: rgba(0, 0, 0, .55);
+    --grabber: #48484A;
+    --segment: #2C2C2E;
+    --segment-actief: #636366;
+  }
+}
+
+/* ---------- Basis ---------- */
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--tekst);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+body { overflow: hidden; }
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.groen { color: var(--groen); }
+.oranje { color: var(--oranje); }
+.rood { color: var(--rood); }
+.accent { color: var(--accent); }
+
+/* ---------- Schermen ---------- */
+.view {
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  background: var(--bg);
+  transition: transform .35s cubic-bezier(.2, .8, .2, 1);
+}
+.view.push { transform: translateX(100%); z-index: 10; box-shadow: -8px 0 24px rgba(0, 0, 0, .08); }
+.view.push.open { transform: none; }
+#home.achter { transform: translateX(-25%); }
+
+.content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 16px calc(40px + env(safe-area-inset-bottom));
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+}
+
+/* ---------- Navigatiebalk ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  min-height: calc(44px + env(safe-area-inset-top));
+  padding: env(safe-area-inset-top) max(16px, calc((100% - 600px) / 2 + 16px)) 0;
+  background: var(--nav);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  box-shadow: 0 .5px 0 transparent;
+  transition: box-shadow .2s;
+}
+.navbar.scrolled { box-shadow: 0 .5px 0 var(--scheiding); }
+
+.nav-title {
+  grid-column: 2;
+  font-size: 17px;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity .2s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 55vw;
+}
+.navbar.scrolled .nav-title { opacity: 1; }
+.nav-links { grid-column: 1; grid-row: 1; justify-self: start; }
+.nav-rechts { grid-column: 3; grid-row: 1; justify-self: end; }
+
+.rond-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: var(--accent);
+  color: #fff;
+  transition: transform .15s;
+}
+.rond-btn:active { transform: scale(.9); }
+
+.terug-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: -6px;
+  padding: 8px 6px;
+  color: var(--accent);
+  font-size: 17px;
+}
+.terug-btn:active { opacity: .5; }
+
+.large-title {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: .01em;
+  line-height: 41px;
+  margin: 2px 0 14px;
+  overflow-wrap: anywhere;
+}
+
+.sectie-kop {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 28px 0 10px;
+}
+
+/* ---------- Kaarten ---------- */
+.card {
+  background: var(--kaart);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.boek-kaart {
+  cursor: pointer;
+  transition: transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.boek-kaart:active { transform: scale(.97); }
+
+.boek-kop { display: flex; align-items: center; gap: 8px; }
+.boek-titel {
+  flex: 1;
+  font-size: 17px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.chevron { color: var(--grabber); flex: none; }
+
+.voortgang {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--spoor);
+  overflow: hidden;
+  margin: 12px 0 6px;
+}
+.voortgang > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width .4s ease;
+}
+.voortgang.klaar > span { background: var(--groen); }
+
+.meta { font-size: 13px; color: var(--sec); font-variant-numeric: tabular-nums; }
+
+.vandaag-groot {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  margin-top: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.boek-voet {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.pil {
+  flex: none;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 600;
+  transition: transform .15s;
+}
+.pil:active { transform: scale(.94); }
+
+.leeg { text-align: center; padding: 28px 16px; }
+.leeg p { margin: 6px 0 0; color: var(--sec); font-size: 15px; }
+.leeg strong { font-size: 20px; }
+
+.melding {
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-top: 14px;
+  font-weight: 600;
+  font-size: 15px;
+}
+.melding.rood { background: color-mix(in srgb, var(--rood) 13%, transparent); }
+.melding.groen { background: color-mix(in srgb, var(--groen) 15%, transparent); }
+.melding.grijs { background: var(--spoor); color: var(--tekst); }
+
+/* ---------- Kalender ---------- */
+.kalender { padding: 12px 8px 14px; }
+.kal-kop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.kal-titel { font-size: 17px; font-weight: 600; text-transform: capitalize; padding: 8px; }
+.kal-pijl {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 30px;
+  line-height: 1;
+}
+.kal-pijl:active, .kal-titel:active { opacity: .5; }
+
+.kal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 4px;
+  text-align: center;
+}
+.kal-dagnaam {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--sec);
+  text-transform: uppercase;
+  padding-bottom: 6px;
+}
+.kal-cel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  min-height: 50px;
+}
+.kal-num {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 18px;
+  font-variant-numeric: tabular-nums;
+}
+.kal-cel.verleden .kal-num { color: var(--sec); }
+.kal-cel.vandaag .kal-num { background: var(--accent); color: #fff; font-weight: 600; }
+.kal-cel.deadline .kal-num::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: 1px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--rood);
+  box-shadow: 0 0 0 1.5px var(--kaart);
+}
+.kal-pag {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 13px;
+  min-height: 13px;
+  color: var(--sec);
+  font-variant-numeric: tabular-nums;
+}
+.kal-pag.groen { color: var(--groen); }
+.kal-pag.oranje { color: var(--oranje); }
+.kal-pag.accent { color: var(--accent); }
+
+.legende {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 14px;
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--sec);
+}
+.legende span { display: inline-flex; align-items: center; gap: 5px; }
+.stip { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.stip.groen { background: var(--groen); }
+.stip.oranje { background: var(--oranje); }
+.stip.grijs { background: var(--sec); }
+.stip.rood { background: var(--rood); }
+
+/* ---------- Detail ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.stat { background: var(--kaart); border-radius: 14px; padding: 12px 16px; }
+.stat-label { font-size: 13px; color: var(--sec); }
+.stat-waarde {
+  font-size: 28px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  margin-top: 2px;
+}
+.stat-waarde small { font-size: 15px; font-weight: 500; color: var(--sec); }
+
+.lijst { background: var(--kaart); border-radius: 14px; overflow: hidden; margin-bottom: 20px; }
+.lijst .rij { width: 100%; text-align: left; }
+.lijst .rij:active { background: var(--spoor); }
+.lijst-leeg { padding: 14px 16px; color: var(--sec); font-size: 15px; }
+
+.knoppen { display: grid; gap: 10px; }
+
+/* ---------- Rijen (iOS-lijsten en formulieren) ---------- */
+.groep {
+  background: var(--groep);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.rij {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 46px;
+  padding: 0 16px;
+}
+.rij + .rij::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 16px;
+  right: 0;
+  height: .5px;
+  background: var(--scheiding);
+}
+.rij label, .rij .rij-label { flex: none; }
+.rij .rij-waarde { margin-left: auto; color: var(--sec); font-variant-numeric: tabular-nums; }
+.rij .rij-waarde.groen { color: var(--groen); }
+.rij .rij-waarde.oranje { color: var(--oranje); }
+.rij input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--tekst);
+  font: inherit;
+  font-size: 17px;          /* ‚â•16px: voorkomt inzoomen op iOS */
+  padding: 12px 0;
+  text-align: right;
+}
+.rij input#fTitel { text-align: left; }
+.rij input::placeholder { color: var(--sec); opacity: .7; }
+.rij input[type="date"] {
+  -webkit-appearance: none;
+  appearance: none;
+  color: var(--accent);
+  min-height: 46px;
+  display: flex;
+  justify-content: flex-end;
+}
+.rij input[type="date"]::-webkit-date-and-time-value { text-align: right; }
+
+/* ---------- Knoppen ---------- */
+.knop {
+  display: block;
+  width: 100%;
+  height: 50px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  transition: transform .15s, opacity .15s;
+}
+.knop:active { transform: scale(.97); opacity: .85; }
+.knop.grijs { background: var(--kaart); color: var(--accent); }
+.knop.rood { background: var(--kaart); color: var(--rood); }
+
+.link-btn { color: var(--accent); font-size: 17px; padding: 8px 0; }
+.link-btn.rood { color: var(--rood); }
+.link-btn:active { opacity: .5; }
+
+/* ---------- Sheets ---------- */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: var(--backdrop);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s;
+}
+.backdrop.open { opacity: 1; pointer-events: auto; }
+
+.sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 21;
+  max-width: 600px;
+  max-height: calc(100% - env(safe-area-inset-top) - 12px);
+  margin: 0 auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 16px calc(16px + env(safe-area-inset-bottom));
+  background: var(--sheet);
+  border-radius: 16px 16px 0 0;
+  transform: translateY(100%);
+  transition: transform .3s cubic-bezier(.2, .8, .2, 1);
+  box-shadow: 0 -4px 30px rgba(0, 0, 0, .12);
+}
+.sheet.open { transform: translateY(0); }
+.sheet.sleept { transition: none; }
+
+.sheet-greep { touch-action: none; }
+.grabber {
+  width: 36px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--grabber);
+  margin: 6px auto 0;
+}
+.sheet-kop {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: 48px;
+  margin-bottom: 8px;
+}
+.sheet-kop .link-btn { justify-self: start; }
+.sheet-kop h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  max-width: 50vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fout { color: var(--rood); font-size: 14px; min-height: 18px; margin: -10px 4px 10px; }
+
+/* Gelezen ingeven */
+.segment {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 2px;
+  border-radius: 9px;
+  background: var(--segment);
+  margin-bottom: 8px;
+}
+.segment button {
+  height: 30px;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background .2s;
+}
+.segment button.actief {
+  background: var(--segment-actief);
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .12);
+}
+
+.groot-getal {
+  display: block;
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--tekst);
+  font: inherit;
+  font-size: 72px;
+  font-weight: 700;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  padding: 8px 0 0;
+  caret-color: var(--accent);
+}
+.groot-getal::placeholder { color: var(--spoor); }
+
+.log-hint { text-align: center; color: var(--sec); font-size: 15px; margin: 0 0 16px; min-height: 20px; }
+
+.stappen {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.stap {
+  height: 44px;
+  border-radius: 999px;
+  background: var(--groep);
+  color: var(--accent);
+  font-size: 17px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  transition: transform .12s;
+}
+.stap:active { transform: scale(.92); }
+
+.wis-btn { display: block; margin: 8px auto 0; }
+.wis-btn[hidden] { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .view, .sheet, .backdrop { transition: none; }
+}
+
+/* ================= iPhone-kader (alleen op grote schermen) ================= */
+html:not(.kader) .kader-only { display: none; }
+html.kader .view, html.kader .sheet, html.kader .backdrop { display: none; }
+html.kader body {
+  overflow: auto;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 56px;
+  padding: 24px;
+  background: #E8E8ED;
+}
+@media (prefers-color-scheme: dark) { html.kader body { background: #161617; } }
+
+.toestel {
+  --w: 393px; --h: 852px; --radius: 55px; --rand: 12px; --status: 54px;
+  position: relative;
+  flex: none;
+  width: calc(var(--w) + 2 * var(--rand));
+  height: calc(var(--h) + 2 * var(--rand));
+  padding: var(--rand);
+  border-radius: var(--radius);
+  background: #1B1B1D;
+  box-shadow: inset 0 0 0 2px #3A3A3C, 0 0 0 1px #0B0B0C, 0 30px 80px rgba(0, 0, 0, .28);
+}
+.toestel::before, .toestel::after { content: ""; position: absolute; width: 4px; background: #2A2A2C; border-radius: 2px; }
+.toestel::before { left: -4px; top: 180px; height: 64px; box-shadow: 0 84px 0 #2A2A2C; }
+.toestel::after { right: -4px; top: 230px; height: 96px; }
+.scherm {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: calc(var(--radius) - var(--rand));
+  background: var(--bg);
+}
+.statusbalk {
+  height: var(--status);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 34px 0 44px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.statusbalk .iconen { display: flex; gap: 6px; align-items: center; }
+.eiland {
+  position: absolute; top: 11px; left: 50%; z-index: 2;
+  width: 124px; height: 36px;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  background: #000;
+}
+.scherm iframe { display: block; width: 100%; height: calc(100% - var(--status)); border: 0; background: var(--bg); }
+.home-indicator {
+  position: absolute; bottom: 8px; left: 50%;
+  width: 134px; height: 5px;
+  transform: translateX(-50%);
+  border-radius: 3px;
+  background: var(--tekst);
+  opacity: .85;
+  pointer-events: none;
+}
+.toestel.se { --radius: 36px; --status: 20px; }
+.toestel.se .eiland, .toestel.se .home-indicator { display: none; }
+.toestel.se .statusbalk { padding: 0 16px; font-size: 12px; }
+
+.uitleg { max-width: 320px; }
+.uitleg img { width: 64px; height: 64px; border-radius: 14px; display: block; margin-bottom: 16px; }
+.uitleg h1 { font-size: 34px; margin: 0 0 8px; }
+.uitleg p { color: var(--sec); line-height: 1.45; margin: 0 0 20px; }
+.modellen {
+  display: grid; gap: 2px; padding: 2px; margin-bottom: 20px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--tekst) 10%, transparent);
+}
+.modellen button {
+  display: flex; justify-content: space-between;
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: left;
+}
+.modellen button span { color: var(--sec); font-variant-numeric: tabular-nums; }
+.modellen button[aria-pressed="true"] { background: var(--kaart); font-weight: 600; box-shadow: 0 1px 4px rgba(0, 0, 0, .1); }
+.uitleg a { color: var(--accent); text-decoration: none; font-weight: 500; }
+@media (max-width: 900px) { .uitleg { display: none; } }
+  </style>
   <title>Lezen</title>
 </head>
 <body>
@@ -34,9 +688,9 @@
       <h2 class="sectie-kop">Kalender</h2>
       <section class="card kalender">
         <div class="kal-kop">
-          <button class="kal-pijl" id="vorigeMaand" aria-label="Vorige maand">‹</button>
+          <button class="kal-pijl" id="vorigeMaand" aria-label="Vorige maand">‚Äπ</button>
           <button class="kal-titel" id="maandTitel" title="Naar deze maand"></button>
-          <button class="kal-pijl" id="volgendeMaand" aria-label="Volgende maand">›</button>
+          <button class="kal-pijl" id="volgendeMaand" aria-label="Volgende maand">‚Ä∫</button>
         </div>
         <div class="kal-grid" id="kalGrid"></div>
         <div class="legende">
@@ -107,8 +761,8 @@
     <input class="groot-getal" id="logVeld" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="0" aria-label="Pagina's" autocomplete="off">
     <p class="log-hint" id="logHint">&nbsp;</p>
     <div class="stappen">
-      <button type="button" class="stap" data-stap="-5">−5</button>
-      <button type="button" class="stap" data-stap="-1">−1</button>
+      <button type="button" class="stap" data-stap="-5">‚àí5</button>
+      <button type="button" class="stap" data-stap="-1">‚àí1</button>
       <button type="button" class="stap" data-stap="1">+1</button>
       <button type="button" class="stap" data-stap="5">+5</button>
     </div>
@@ -120,6 +774,605 @@
     <button type="button" class="link-btn rood wis-btn" id="logWis" hidden>Ingave verwijderen</button>
   </form>
 
-  <script src="app.js"></script>
+  
+  <!-- iPhone-kader: alleen zichtbaar op grote schermen -->
+  <div class="toestel kader-only" id="toestel">
+    <div class="scherm">
+      <div class="eiland"></div>
+      <div class="statusbalk">
+        <span id="klok">9:41</span>
+        <span class="iconen" aria-hidden="true">
+          <svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="currentColor"/><rect x="5" y="5.5" width="3" height="6.5" rx="1" fill="currentColor"/><rect x="10" y="3" width="3" height="9" rx="1" fill="currentColor"/><rect x="15" y="0" width="3" height="12" rx="1" fill="currentColor"/></svg>
+          <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0L8 11.5Zm-4-4a5.7 5.7 0 0 1 8 0l1.3-1.3a7.6 7.6 0 0 0-10.6 0L4 7.5ZM1.3 4.8a9.5 9.5 0 0 1 13.4 0L16 3.5a11.4 11.4 0 0 0-16 0l1.3 1.3Z" fill="currentColor"/></svg>
+          <svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" opacity=".4"/><rect x="2" y="2" width="18" height="9" rx="2" fill="currentColor"/><path d="M25 4.5v4a2 2 0 0 0 0-4Z" fill="currentColor" opacity=".4"/></svg>
+        </span>
+      </div>
+      <iframe id="kaderApp" title="Leesplanner"></iframe>
+      <div class="home-indicator"></div>
+    </div>
+  </div>
+  <aside class="uitleg kader-only">
+    <img id="kaderIcoon" alt="">
+    <h1>Leesplanner</h1>
+    <p>De app op iPhone-formaat. Alles wat je hier ingeeft, wordt bewaard in deze browser.</p>
+    <div class="modellen" role="group" aria-label="Toestel">
+      <button data-w="375" data-h="667" data-se>iPhone SE <span>375 √ó 667</span></button>
+      <button data-w="393" data-h="852" aria-pressed="true">iPhone 16 <span>393 √ó 852</span></button>
+      <button data-w="430" data-h="932">iPhone 16 Pro Max <span>430 √ó 932</span></button>
+    </div>
+    <p>Op je iPhone: open deze pagina in Safari ‚Üí Deel ‚Üí <em>Zet op beginscherm</em>.<br><a href="?app">App zonder kader openen</a></p>
+  </aside>
+
+  <script>
+"use strict";
+if (!document.documentElement.classList.contains("kader")) {
+
+/* ================= Opslag ================= */
+
+const SLEUTEL = "boeken";
+const opslaan = boeken => localStorage.setItem(SLEUTEL, JSON.stringify(boeken));
+const laden = () => {
+  try { return JSON.parse(localStorage.getItem(SLEUTEL) || "[]"); }
+  catch { return []; }
+};
+
+let boeken = laden();
+const vind = id => boeken.find(b => b.id === id);
+const bewaar = () => { opslaan(boeken); render(); };
+
+/* ================= Datums (altijd lokale YYYY-MM-DD, nooit toISOString) ================= */
+
+const pad = n => String(n).padStart(2, "0");
+const datumStr = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+const vandaagStr = () => datumStr(new Date());
+const naarDatum = s => new Date(s + "T00:00");
+
+function dagenTussen(a, b) {
+  const d1 = naarDatum(a), d2 = naarDatum(b);
+  return Math.round((d2 - d1) / 86400000);
+}
+
+const fmtKort = new Intl.DateTimeFormat("nl-BE", { day: "numeric", month: "short" });
+const fmtLang = new Intl.DateTimeFormat("nl-BE", { weekday: "long", day: "numeric", month: "long" });
+const fmtMaand = new Intl.DateTimeFormat("nl-BE", { month: "long", year: "numeric" });
+const kort = s => fmtKort.format(naarDatum(s));
+const lang = s => fmtLang.format(naarDatum(s));
+const pag = n => `${n} ${n === 1 ? "pagina" : "pagina's"}`;
+
+/* ================= Rekenlogica ================= */
+
+const somLogs = (logs, filter = () => true) =>
+  Object.entries(logs).reduce((s, [d, n]) => (filter(d) ? s + n : s), 0);
+
+function planning(boek, vandaag) {
+  const gelezen = somLogs(boek.logs);
+  const rest = Math.max(0, boek.totaalPaginas - gelezen);
+  // Nog niet gestart? Dan pas tellen vanaf de startdatum.
+  const vanaf = vandaag < boek.startDatum ? boek.startDatum : vandaag;
+  const vandaagGelezen = boek.logs[vandaag] || 0;
+  const startTel = vanaf === vandaag && vandaagGelezen > 0 ? 1 : 0; // morgen of vandaag
+  const dagen = dagenTussen(vanaf, boek.deadline) + 1 - startTel;
+  const perDag = dagen > 0 ? Math.ceil(rest / dagen) : rest;
+  return { gelezen, rest, dagen: Math.max(0, dagen), perDag, vandaagGelezen };
+}
+
+// Het doel zoals het gold bij het begin van `datum`: bepaalt groen/oranje in de kalender.
+function doelOp(boek, datum) {
+  if (datum < boek.startDatum || datum > boek.deadline) return 0;
+  const rest = Math.max(0, boek.totaalPaginas - somLogs(boek.logs, d => d < datum));
+  return Math.ceil(rest / (dagenTussen(datum, boek.deadline) + 1));
+}
+
+function status(boek, vandaag) {
+  const p = planning(boek, vandaag);
+  if (p.rest === 0) return { soort: "klaar", p };
+  if (vandaag > boek.deadline) return { soort: "gemist", p };
+  if (vandaag < boek.startDatum) return { soort: "gepland", p };
+  const doel = doelOp(boek, vandaag);
+  return { soort: p.vandaagGelezen >= doel ? "gehaald" : "bezig", p, doel };
+}
+
+/* ================= Hulpjes ================= */
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, c =>
+  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const chevron = `<svg class="chevron" viewBox="0 0 8 14" width="8" height="14" aria-hidden="true"><path d="m1 1 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+/* ================= Homescreen ================= */
+
+function boekKaart(b, vandaag) {
+  const s = status(b, vandaag), p = s.p;
+  const pct = Math.min(100, Math.round((p.gelezen / b.totaalPaginas) * 100));
+  let groot = "", sub = "", melding = "";
+
+  switch (s.soort) {
+    case "klaar":
+      groot = `<span class="groen">Uitgelezen! üéâ</span>`;
+      sub = `${pag(b.totaalPaginas)} gelezen`;
+      break;
+    case "gemist":
+      melding = `<div class="melding rood">Deadline gemist, nog ${pag(p.rest)}</div>`;
+      sub = `Deadline was ${kort(b.deadline)}`;
+      break;
+    case "gepland":
+      groot = `Start ${kort(b.startDatum)}`;
+      sub = `Daarna ${pag(p.perDag)} per dag`;
+      break;
+    case "gehaald":
+      groot = `Vandaag: <span class="groen">${pag(p.vandaagGelezen)}</span>`;
+      sub = `Doel van ${s.doel} gehaald ‚úì` + (p.dagen > 0 ? ` ¬∑ morgen ${p.perDag}` : "");
+      break;
+    default:
+      groot = `Vandaag: <span class="accent">${pag(s.doel)}</span>`;
+      sub = p.vandaagGelezen > 0
+        ? `${p.vandaagGelezen} gelezen, nog ${s.doel - p.vandaagGelezen} te gaan`
+        : `Nog ${pag(p.rest)} ¬∑ tot ${kort(b.deadline)}`;
+  }
+
+  const kanIngeven = s.soort !== "gepland";
+  return `
+    <div class="card boek-kaart" role="button" tabindex="0" data-open="${b.id}">
+      <div class="boek-kop"><div class="boek-titel">${esc(b.titel)}</div>${chevron}</div>
+      <div class="voortgang${p.rest === 0 ? " klaar" : ""}"><span style="width:${pct}%"></span></div>
+      <div class="meta">${p.gelezen} / ${b.totaalPaginas} pagina's ¬∑ ${pct}%</div>
+      ${groot ? `<div class="vandaag-groot">${groot}</div>` : melding}
+      <div class="boek-voet">
+        <span class="meta">${sub}</span>
+        ${kanIngeven ? `<button class="pil" data-log="${b.id}">Ingeven</button>` : ""}
+      </div>
+    </div>`;
+}
+
+function renderLijst() {
+  const vandaag = vandaagStr();
+  $("boekenLijst").innerHTML = boeken.length
+    ? boeken.map(b => boekKaart(b, vandaag)).join("")
+    : `<div class="card leeg"><strong>Nog geen boeken</strong><p>Tik op + om je eerste boek toe te voegen.</p></div>`;
+}
+
+/* ================= Kalender ================= */
+
+const nu = new Date();
+let kalJaar = nu.getFullYear();
+let kalMaand = nu.getMonth();
+
+function celInhoud(datum, vandaag, plannen) {
+  let gelezen = 0, doel = 0, relevant = false, deadline = false;
+
+  for (const b of boeken) {
+    if (b.deadline === datum) deadline = true;
+    const log = b.logs[datum];
+
+    if (datum <= vandaag) {
+      // Verleden en vandaag: wat je gelezen hebt, tegenover het doel van die dag.
+      const d = doelOp(b, datum);
+      if (log !== undefined || d > 0) relevant = true;
+      gelezen += log || 0;
+      doel += d;
+    } else {
+      // Toekomst: het huidige perDag, tot en met de deadline.
+      const p = plannen.get(b.id);
+      if (p.rest > 0 && datum >= b.startDatum && datum <= b.deadline) {
+        doel += p.perDag;
+        relevant = true;
+      }
+    }
+  }
+
+  if (!relevant) return { tekst: "", klasse: "", deadline };
+  if (datum > vandaag) return { tekst: doel, klasse: "", deadline };
+  if (datum === vandaag) {
+    if (gelezen > 0 && gelezen >= doel) return { tekst: gelezen, klasse: "groen", deadline };
+    return { tekst: gelezen > 0 ? `${gelezen}/${doel}` : doel, klasse: "accent", deadline };
+  }
+  const klasse = doel === 0 ? (gelezen > 0 ? "groen" : "") : gelezen >= doel ? "groen" : "oranje";
+  return { tekst: gelezen, klasse, deadline };
+}
+
+function renderKalender() {
+  const vandaag = vandaagStr();
+  const eerste = new Date(kalJaar, kalMaand, 1);
+  $("maandTitel").textContent = fmtMaand.format(eerste);
+
+  const plannen = new Map(boeken.map(b => [b.id, planning(b, vandaag)]));
+  const leeg = (eerste.getDay() + 6) % 7; // week begint op maandag
+  const aantalDagen = new Date(kalJaar, kalMaand + 1, 0).getDate();
+
+  let html = ["ma", "di", "wo", "do", "vr", "za", "zo"].map(d => `<div class="kal-dagnaam">${d}</div>`).join("");
+  html += "<div></div>".repeat(leeg);
+
+  for (let dag = 1; dag <= aantalDagen; dag++) {
+    const datum = `${kalJaar}-${pad(kalMaand + 1)}-${pad(dag)}`;
+    const c = celInhoud(datum, vandaag, plannen);
+    const klassen = ["kal-cel"];
+    if (datum < vandaag) klassen.push("verleden");
+    if (datum === vandaag) klassen.push("vandaag");
+    if (c.deadline) klassen.push("deadline");
+    html += `<div class="${klassen.join(" ")}"><span class="kal-num">${dag}</span><span class="kal-pag ${c.klasse}">${c.tekst}</span></div>`;
+  }
+  $("kalGrid").innerHTML = html;
+}
+
+function wisselMaand(delta) {
+  const d = new Date(kalJaar, kalMaand + delta, 1);
+  kalJaar = d.getFullYear();
+  kalMaand = d.getMonth();
+  renderKalender();
+}
+
+/* ================= Detail ================= */
+
+let detailId = null;
+
+function openDetail(id) {
+  detailId = id;
+  renderDetail();
+  $("detail").scrollTop = 0;
+  $("detail").inert = false;
+  $("detail").classList.add("open");
+  $("home").classList.add("achter");
+  $("home").inert = true;
+}
+
+function sluitDetail() {
+  detailId = null;
+  $("detail").classList.remove("open");
+  $("detail").inert = true;
+  $("home").classList.remove("achter");
+  $("home").inert = false;
+}
+
+function renderDetail() {
+  const b = vind(detailId);
+  if (!b) return sluitDetail();
+  const vandaag = vandaagStr();
+  const s = status(b, vandaag), p = s.p;
+  const pct = Math.min(100, Math.round((p.gelezen / b.totaalPaginas) * 100));
+
+  $("detailTitel").textContent = b.titel;
+  $("detailNavTitel").textContent = b.titel;
+
+  const melding = {
+    klaar: `<div class="melding groen">Uitgelezen! üéâ</div>`,
+    gemist: `<div class="melding rood">Deadline gemist, nog ${pag(p.rest)}</div>`,
+    gepland: `<div class="melding grijs">Je begint op ${lang(b.startDatum)}</div>`,
+    gehaald: `<div class="melding groen">Doel van vandaag gehaald ‚úì</div>`,
+  }[s.soort] || "";
+
+  const logs = Object.entries(b.logs).sort(([a], [c]) => (a < c ? 1 : -1));
+  const lijst = logs.length
+    ? logs.map(([d, n]) => {
+        const doel = doelOp(b, d);
+        const kleur = doel === 0 ? "" : n >= doel ? "groen" : d < vandaag ? "oranje" : "";
+        return `<button class="rij" data-logdatum="${d}">
+          <span class="rij-label">${lang(d)}</span>
+          <span class="rij-waarde ${kleur}">${pag(n)}</span>${chevron}
+        </button>`;
+      }).join("")
+    : `<div class="lijst-leeg">Nog niets ingegeven.</div>`;
+
+  $("detailInhoud").innerHTML = `
+    <div class="card">
+      <div class="meta">${p.gelezen} van ${b.totaalPaginas} pagina's gelezen ¬∑ ${pct}%</div>
+      <div class="voortgang${p.rest === 0 ? " klaar" : ""}"><span style="width:${pct}%"></span></div>
+      <div class="meta">${kort(b.startDatum)} ‚Üí ${kort(b.deadline)}</div>
+      ${melding}
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-label">${s.soort === "bezig" ? "Doel vandaag" : "Per dag"}</div>
+        <div class="stat-waarde">${p.rest === 0 ? "‚Äì" : s.soort === "bezig" ? s.doel : p.perDag} <small>pag.</small></div></div>
+      <div class="stat"><div class="stat-label">Nog te lezen</div>
+        <div class="stat-waarde">${p.rest} <small>pag.</small></div></div>
+      <div class="stat"><div class="stat-label">Dagen over</div>
+        <div class="stat-waarde">${p.rest === 0 ? "‚Äì" : p.dagen}</div></div>
+      <div class="stat"><div class="stat-label">Deadline</div>
+        <div class="stat-waarde" style="font-size:22px;line-height:34px">${kort(b.deadline)}</div></div>
+    </div>
+    ${s.soort !== "gepland" ? `<div class="knoppen" style="margin-bottom:24px"><button class="knop" data-log="${b.id}">Gelezen ingeven</button></div>` : ""}
+    <h2 class="sectie-kop">Geschiedenis</h2>
+    <div class="lijst">${lijst}</div>
+    <div class="knoppen">
+      <button class="knop grijs" id="btnBewerk">Boek bewerken</button>
+      <button class="knop rood" id="btnVerwijder">Boek verwijderen</button>
+    </div>`;
+}
+
+/* ================= Sheets ================= */
+
+let openSheetEl = null;
+
+function openSheet(el) {
+  openSheetEl = el;
+  el.inert = false;
+  el.scrollTop = 0;
+  el.classList.add("open");
+  $("backdrop").classList.add("open");
+}
+
+function sluitSheet() {
+  if (!openSheetEl) return;
+  document.activeElement?.blur();
+  openSheetEl.classList.remove("open");
+  openSheetEl.style.transform = "";
+  openSheetEl.inert = true;
+  openSheetEl = null;
+  $("backdrop").classList.remove("open");
+}
+
+// Sheet naar beneden slepen om te sluiten
+document.querySelectorAll(".sheet-greep").forEach(greep => {
+  let startY = null, dy = 0;
+  greep.addEventListener("pointerdown", e => {
+    if (e.target.closest("button")) return;
+    startY = e.clientY; dy = 0;
+    greep.setPointerCapture(e.pointerId);
+    greep.parentElement.classList.add("sleept");
+  });
+  greep.addEventListener("pointermove", e => {
+    if (startY === null) return;
+    dy = Math.max(0, e.clientY - startY);
+    greep.parentElement.style.transform = `translateY(${dy}px)`;
+  });
+  const los = () => {
+    if (startY === null) return;
+    const sheet = greep.parentElement;
+    sheet.classList.remove("sleept");
+    sheet.style.transform = "";
+    startY = null;
+    if (dy > 90) sluitSheet();
+  };
+  greep.addEventListener("pointerup", los);
+  greep.addEventListener("pointercancel", los);
+});
+
+/* ---------- Boek toevoegen / bewerken ---------- */
+
+let bewerkId = null;
+
+function openBoekSheet(id = null) {
+  bewerkId = id;
+  const b = id ? vind(id) : null;
+  $("boekSheetTitel").textContent = b ? "Boek bewerken" : "Nieuw boek";
+  $("boekOpslaan").textContent = b ? "Bewaren" : "Toevoegen";
+  $("fTitel").value = b ? b.titel : "";
+  $("fPaginas").value = b ? b.totaalPaginas : "";
+  $("fStart").value = b ? b.startDatum : vandaagStr();
+  $("fDeadline").value = b ? b.deadline : "";
+  $("boekFout").textContent = "";
+  openSheet($("sheetBoek"));
+}
+
+$("sheetBoek").addEventListener("submit", e => {
+  e.preventDefault();
+  const titel = $("fTitel").value.trim();
+  const paginas = Number($("fPaginas").value.trim());
+  const start = $("fStart").value;
+  const deadline = $("fDeadline").value;
+  const fout = t => { $("boekFout").textContent = t; };
+
+  if (!titel) return fout("Geef een titel in.");
+  if (!Number.isInteger(paginas) || paginas <= 0) return fout("Het aantal pagina's moet groter zijn dan 0.");
+  if (!start) return fout("Kies een startdatum.");
+  if (!deadline) return fout("Kies een deadline.");
+  if (deadline <= start) return fout("De deadline moet na de startdatum liggen.");
+
+  if (bewerkId) {
+    Object.assign(vind(bewerkId), { titel, totaalPaginas: paginas, startDatum: start, deadline });
+  } else {
+    boeken.push({ id: "b" + Date.now(), titel, totaalPaginas: paginas, startDatum: start, deadline, logs: {} });
+  }
+  sluitSheet();
+  bewaar();
+});
+
+/* ---------- Gelezen ingeven ---------- */
+
+const log = { boekId: null, datum: null, modus: "aantal" };
+
+// Totaal gelezen v√≥√≥r de gekozen dag: basis voor "tot pagina X".
+const vorigTotaal = () => somLogs(vind(log.boekId).logs, d => d < log.datum);
+
+function openLogSheet(id, datum = vandaagStr()) {
+  const b = vind(id);
+  log.boekId = id;
+  log.datum = datum;
+  $("logTitel").textContent = b.titel;
+  $("logDatum").value = datum;
+  $("logDatum").max = vandaagStr();
+  vulLogVeld();
+  openSheet($("sheetLog"));
+}
+
+function vulLogVeld() {
+  const b = vind(log.boekId);
+  const huidig = b.logs[log.datum];
+  const vorig = vorigTotaal();
+  document.querySelectorAll(".segment button").forEach(k =>
+    k.classList.toggle("actief", k.dataset.modus === log.modus));
+  $("logVeld").placeholder = log.modus === "aantal" ? "0" : String(vorig);
+  $("logVeld").value = huidig === undefined ? "" : log.modus === "aantal" ? huidig : vorig + huidig;
+  $("logWis").hidden = huidig === undefined;
+  $("logFout").textContent = "";
+  updateHint();
+}
+
+function updateHint() {
+  const b = vind(log.boekId);
+  const vorig = vorigTotaal();
+  const v = parseInt($("logVeld").value, 10);
+  let hint;
+  if (isNaN(v)) {
+    hint = log.modus === "aantal"
+      ? `Je zat op pagina ${vorig} van ${b.totaalPaginas}`
+      : `Vorige keer: pagina ${vorig}`;
+  } else if (log.modus === "aantal") {
+    hint = `pagina's ‚Üí tot pagina ${vorig + v}`;
+  } else {
+    hint = v >= vorig ? `= ${pag(v - vorig)} gelezen` : `Je zat al op pagina ${vorig}`;
+  }
+  $("logHint").textContent = hint;
+}
+
+document.querySelectorAll(".segment button").forEach(k => k.addEventListener("click", () => {
+  const v = parseInt($("logVeld").value, 10);
+  const vorig = vorigTotaal();
+  const nieuw = k.dataset.modus;
+  if (nieuw !== log.modus && !isNaN(v)) {
+    $("logVeld").value = nieuw === "aantal" ? Math.max(0, v - vorig) : vorig + v;
+  }
+  log.modus = nieuw;
+  document.querySelectorAll(".segment button").forEach(x => x.classList.toggle("actief", x === k));
+  $("logVeld").placeholder = nieuw === "aantal" ? "0" : String(vorig);
+  updateHint();
+}));
+
+document.querySelectorAll("[data-stap]").forEach(k => k.addEventListener("click", () => {
+  const basis = log.modus === "aantal" ? 0 : vorigTotaal();
+  const v = parseInt($("logVeld").value, 10);
+  $("logVeld").value = Math.max(0, (isNaN(v) ? basis : v) + Number(k.dataset.stap));
+  $("logFout").textContent = "";
+  updateHint();
+}));
+
+$("logVeld").addEventListener("input", () => {
+  $("logVeld").value = $("logVeld").value.replace(/\D/g, "");
+  $("logFout").textContent = "";
+  updateHint();
+});
+
+$("logDatum").addEventListener("change", () => {
+  if (!$("logDatum").value) return;
+  log.datum = $("logDatum").value;
+  vulLogVeld();
+});
+
+$("sheetLog").addEventListener("submit", e => {
+  e.preventDefault();
+  const b = vind(log.boekId);
+  const v = parseInt($("logVeld").value, 10);
+  const fout = t => { $("logFout").textContent = t; };
+
+  if (isNaN(v) || v < 0) return fout("Geef een getal in.");
+  if (log.datum > vandaagStr()) return fout("Je kan geen dag in de toekomst ingeven.");
+  const aantal = log.modus === "aantal" ? v : v - vorigTotaal();
+  if (aantal < 0) return fout(`Je zat al op pagina ${vorigTotaal()}.`);
+
+  b.logs[log.datum] = aantal;
+  sluitSheet();
+  bewaar();
+});
+
+$("logWis").addEventListener("click", () => {
+  delete vind(log.boekId).logs[log.datum];
+  sluitSheet();
+  bewaar();
+});
+
+/* ================= Events ================= */
+
+document.addEventListener("click", e => {
+  const logKnop = e.target.closest("[data-log]");
+  if (logKnop) return openLogSheet(logKnop.dataset.log);
+
+  const kaart = e.target.closest("[data-open]");
+  if (kaart) return openDetail(kaart.dataset.open);
+
+  const logRij = e.target.closest("[data-logdatum]");
+  if (logRij) return openLogSheet(detailId, logRij.dataset.logdatum);
+
+  if (e.target.closest("[data-sluit]")) return sluitSheet();
+  if (e.target.closest("#btnBewerk")) return openBoekSheet(detailId);
+  if (e.target.closest("#btnVerwijder")) {
+    const b = vind(detailId);
+    if (confirm(`"${b.titel}" verwijderen? Dit kan niet ongedaan gemaakt worden.`)) {
+      boeken = boeken.filter(x => x.id !== b.id);
+      sluitDetail();
+      bewaar();
+    }
+  }
+});
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") return openSheetEl ? sluitSheet() : detailId && sluitDetail();
+  const kaart = e.target.closest?.("[data-open]");
+  if (kaart && (e.key === "Enter" || e.key === " ")) {
+    e.preventDefault();
+    openDetail(kaart.dataset.open);
+  }
+});
+
+$("btnNieuw").addEventListener("click", () => openBoekSheet());
+$("btnTerug").addEventListener("click", sluitDetail);
+$("backdrop").addEventListener("click", sluitSheet);
+$("vorigeMaand").addEventListener("click", () => wisselMaand(-1));
+$("volgendeMaand").addEventListener("click", () => wisselMaand(1));
+$("maandTitel").addEventListener("click", () => {
+  const d = new Date();
+  kalJaar = d.getFullYear();
+  kalMaand = d.getMonth();
+  renderKalender();
+});
+
+// Kleine titel in de navigatiebalk tonen zodra de grote titel wegscrollt
+document.querySelectorAll(".view").forEach(view => {
+  const nav = view.querySelector(".navbar");
+  view.addEventListener("scroll", () => nav.classList.toggle("scrolled", view.scrollTop > 36), { passive: true });
+});
+
+/* ================= Render ================= */
+
+function render() {
+  renderLijst();
+  renderKalender();
+  if (detailId) renderDetail();
+}
+
+// Als de app de volgende dag weer geopend wordt, alles opnieuw berekenen.
+let laatsteDag = vandaagStr();
+function controleerNieuweDag() {
+  if (vandaagStr() !== laatsteDag) {
+    laatsteDag = vandaagStr();
+    render();
+  }
+}
+document.addEventListener("visibilitychange", () => { if (!document.hidden) controleerNieuweDag(); });
+setInterval(controleerNieuweDag, 60000);
+
+// Wijzigingen in een ander tabblad oppikken
+window.addEventListener("storage", e => { if (e.key === SLEUTEL) { boeken = laden(); render(); } });
+
+render();
+
+} else {
+
+  const toestel = document.getElementById("toestel");
+  const app = document.getElementById("kaderApp");
+  app.src = location.pathname + "?app";
+  document.getElementById("kaderIcoon").src = document.querySelector('link[rel="apple-touch-icon"]').href;
+
+  // Toestel verkleinen als het venster te laag is
+  const schaal = () => {
+    const h = parseFloat(getComputedStyle(toestel).getPropertyValue("--h")) + 24;
+    toestel.style.zoom = Math.min(1, (innerHeight - 48) / h);
+  };
+  document.querySelectorAll(".modellen button").forEach(k => k.addEventListener("click", () => {
+    document.querySelectorAll(".modellen button").forEach(x => x.setAttribute("aria-pressed", x === k));
+    toestel.style.setProperty("--w", k.dataset.w + "px");
+    toestel.style.setProperty("--h", k.dataset.h + "px");
+    toestel.classList.toggle("se", "se" in k.dataset);
+    schaal();
+  }));
+  const klok = () => {
+    const d = new Date();
+    document.getElementById("klok").textContent = d.getHours() + ":" + String(d.getMinutes()).padStart(2, "0");
+  };
+  klok();
+  setInterval(klok, 15000);
+  addEventListener("resize", schaal);
+  schaal();
+}
+</script>
 </body>
 </html>
+
